@@ -1,0 +1,321 @@
+/* Ajustes base */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #111;
+  color: #eee;
+  font-family: 'Courier New', Courier, monospace;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  scrollbar-width: thin;
+  scrollbar-color: rgb(199, 5, 80) #1a1a1a;
+}
+
+/* Encabezado */
+.encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #111;
+  padding: 1rem 2rem;
+  border-bottom: 2px solid rgb(199, 5, 80);
+  flex-wrap: wrap;
+}
+
+.encabezado-izquierda {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.logo-grande {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.encabezado-texto h1 {
+  margin: 0;
+  color: rgb(199, 5, 80);
+  font-size: 1.8rem;
+}
+
+.encabezado-texto h2 {
+  margin: 0;
+  color: #eee;
+  font-size: 1.7rem;
+  font-weight: normal;
+}
+
+/* Scrollbar WebKit */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(199, 5, 80);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(199, 5, 80);
+}
+
+/* Caja de introducción */
+.caja-intro {
+  width: 100%;
+  max-width: 2000px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 2px solid rgb(199, 5, 80);
+  background-color: rgba(44, 138, 215, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+main {
+  padding: 2rem;
+  flex: 1;
+}
+
+.intro {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #222;
+  border-top: 1px solid #444;
+}
+
+/* ===== Menú lateral desde la derecha ===== */
+
+/* Ocultar el checkbox */
+.menu-toggle-checkbox {
+  display: none;
+}
+
+/* Botón del menú */
+.menu-btn {
+  background-color: #1a1a1a;
+  border: 1px solid rgb(199, 5, 80);
+  color: #ccc;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.2s;
+
+  position: relative;
+  z-index: 1100;
+}
+
+.menu-btn:hover {
+  background-color: rgb(199, 5, 80);
+  color: #000;
+  font-weight: bold;
+}
+
+/* Barra lateral derecha */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -250px;
+  height: 100%;
+  width: 220px;
+  background-color: #111;
+  border-left: 2px solid rgb(199, 5, 80);
+  padding-top: 4rem;
+  transition: right 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+/* Mostrar menú al marcar checkbox */
+.menu-toggle-checkbox:checked + header + .sidebar {
+  right: 0;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0 0 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar a {
+  color: #ccc;
+  padding: 1rem;
+  text-decoration: none;
+  border-bottom: 1px solid #333;
+  display: block;
+  transition: background 0.2s;
+}
+
+.sidebar a:hover {
+  background-color: rgb(199, 5, 80);
+  color: #000;
+  font-weight: bold;
+}
+
+/* Contenedor del PDF */
+.pdf-container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 2px solid rgb(199, 5, 80);
+  background-color: rgba(44, 138, 215, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.pdf-container h2 {
+  margin-bottom: 1rem;
+}
+
+.pdf-container iframe {
+  width: 100%;
+  height: 1000px;
+  border: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+}
+
+/* Estilos caja */
+.info-box {
+  display: flex;
+  align-items: flex-start;
+  background: rgba(199, 5, 80, 0.1);
+  border: 2px dashed #c70550;
+  border-radius: 0;
+  padding: 1rem 1.2rem;
+  margin: 1.6rem 0;
+  color: #eee;
+  font-family: monospace;
+}
+
+.info-box img {
+  width: 120px;
+  height: auto;
+  margin-right: 1rem;
+  border-radius: 0;
+  object-fit: contain;
+}
+
+.info-box img.small-logo {
+  width: 80px; /* más pequeño que el resto */
+}
+
+.info-box div {
+  white-space: pre-line;
+  line-height: 0.8;
+}
+
+/* Justificar texto */
+.scp-document p,
+.scp-document li {
+  text-align: justify;
+  text-align-last: left;
+}
+
+/* Estilos de tablas SCP */
+table.scp-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+}
+
+table.scp-table th, table.scp-table td {
+  border: 1px solid #555;
+  padding: 0.6rem;
+  text-align: center; /* centrado horizontal */
+  vertical-align: middle; /* centrado vertical */
+}
+
+table.scp-table th {
+  background: rgba(255,255,255,0.1);
+}
+
+table.scp-table tr:nth-child(even) {
+  background: rgba(255,255,255,0.02);
+}
+
+/* Estilo general documento SCP */
+.scp-document {
+  max-width: 900px;
+  margin: 2rem auto;
+  background: #1b0510;
+  color: #e6e6e6;
+  padding: 2.2rem;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  font-family: 'Georgia', 'Times New Roman', serif;
+}
+
+.scp-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.scp-header h1 {
+  font-size: 1.6rem;
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+.scp-meta {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin: 0.8rem 0 1.6rem;
+}
+
+.scp-meta div {
+  background: rgba(255,255,255,0.03);
+  padding: 0.6rem 0.9rem;
+  border-radius: 6px;
+  font-family: monospace;
+}
+
+.section-title {
+  font-weight: 700;
+  margin-top: 1.2rem;
+  margin-bottom: 0.6rem;
+}
+
+p, li {
+  line-height: 1.6;
+}
+
+.excerpt {
+  background: rgba(255,255,255,0.02);
+  padding: 0.8rem;
+  border-left: 4px solid #7a7a7a;
+  margin: 1rem 0;
+  font-family: monospace;
+}
+
+.transcript {
+  background: rgba(255,255,255,0.01);
+  padding: 0.8rem;
+  border-radius: 6px;
+  margin-top: 0.6rem;
+  font-family: monospace;
+}
+
+footer.note {
+  text-align: center;
+  margin-top: 1.6rem;
+  opacity: 0.8;
+  font-size: 0.9rem;
+}

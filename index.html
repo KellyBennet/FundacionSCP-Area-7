@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Area-7 | Fundación SCP</title>
+  <link rel="stylesheet" href="styles1.css" />
+</head>
+<body>
+
+  <!-- Checkbox oculto para controlar el menú lateral -->
+  <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox" />
+
+  <!-- Encabezado principal -->
+  <header class="encabezado">
+    <div class="encabezado-izquierda">
+      <img src="fotos/LogoA07.png" alt="Logo Area-7" class="logo-grande" />
+      <div class="encabezado-texto">
+        <h2>Fundación SCP</h2>
+        <h1>Area-7</h1>
+      </div>
+    </div>
+
+    <!-- Botón que activa el menú lateral desde la derecha -->
+    <label for="menu-toggle" class="menu-btn">☰ Menú</label>
+  </header>
+
+  <!-- Menú lateral (desde la derecha) -->
+  <nav class="sidebar sidebar-derecha">
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="archivos/archivos.html">Archivos</a></li>
+      <li><a href="personal/personal.html">Personal</a></li>
+      <li><a href="eventos/eventos.html">Eventos</a></li>
+      <li><a href="scp/scp.html">SCP Contenidos</a></li>
+      <li><a href="docinfo/docinfo.html">Documentos Informativos</a></li>
+    </ul>
+  </nav>
+
+  <!-- Contenido principal -->
+  <main>
+
+    <!-- Panel de estado -->
+    <section class="estado-sitio">
+      <div class="estado-item">🛡️ Estado de seguridad: <span class="ok">Operativo</span></div>
+      <div class="estado-item">📦 Anomalías contenidas: 12</div>
+      <div class="estado-item">⏱️ Última revisión: <span id="hora"></span></div>
+    </section>
+
+    <!-- Introducción -->
+    <section class="intro">
+      <div class="caja-intro">
+        <h2 id="terminal-text"></h2>
+        <p>Este servidor forma parte de la red interna de la Fundación SCP. La información aquí contenida es clasificada y su divulgación está estrictamente prohibida.</p>
+      </div>
+    </section>
+
+    <!-- Noticias internas -->
+<section class="noticias">
+  <h3>Últimos Comunicados</h3>
+  <ul class="lista-comunicados">
+    <li class="comunicado alerta">
+      <span class="icono">🚨</span>
+      <strong>[ALERTA]</strong> Traslado de SCP-███ al Ala de Contención 4 completado.
+    </li>
+    <li class="comunicado update">
+      <span class="icono">📜</span>
+      Actualización de protocolos de seguridad aprobada por el Consejo O5.
+    </li>
+    <li class="comunicado investigacion">
+      <span class="icono">🕵️</span>
+      Se detectaron anomalías en la Zona Perimetral Este. <em>Investigando...</em>
+    </li>
+  </ul>
+</section>
+
+
+  </main>
+
+  <!-- Pie de página -->
+  <footer>
+    <p>&copy; Fundación SCP</p>
+  </footer>
+
+  <!-- Script para hora y efecto terminal -->
+  <script>
+    function actualizarHora() {
+      const ahora = new Date();
+      document.getElementById('hora').textContent = ahora.toLocaleString();
+    }
+    setInterval(actualizarHora, 1000);
+    actualizarHora();
+
+    const texto = "Bienvenido al Área-7";
+    let i = 0;
+    function escribirTexto() {
+      if (i < texto.length) {
+        document.getElementById("terminal-text").textContent += texto.charAt(i);
+        i++;
+        setTimeout(escribirTexto, 100);
+      }
+    }
+    escribirTexto();
+  </script>
+
+
+
+
+
+</body>
+</html>
